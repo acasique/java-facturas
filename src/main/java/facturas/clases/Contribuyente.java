@@ -13,6 +13,7 @@ public class Contribuyente {
 	private RegimenFiscalEnum regimen = RegimenFiscalEnum.FISICA;
 	private TipoPago tipoPago = TipoPago.PUE;
 
+
 	private List<Pago> pagos;
 	private List<Factura> facturas;
 	
@@ -104,6 +105,7 @@ public class Contribuyente {
 		return sb.append("Nombre del contribuyente: ").append(this.nombre).append(this.apellido)
 		.append("\nRFC").append(this.getRfc())
 		.append("\nDomicilio: ").append(this.domicilio)
+                .append("\nCodigo Postal: ").append(this.cp)
 		.append("\nRegimen Fiscal").append(this.getRegimen())
 		.append("\nTipo de contribuyente").append(this.getTipoContribuyente())
 		.append("\nTipo de pago").append(this.getTipoPago()).toString();

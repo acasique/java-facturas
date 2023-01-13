@@ -4,6 +4,6 @@ public enum TipoContribuyente {
 	
 	ALUMNO,
 	ESCUELA,
-	PROFESOR
+	PROFESOR;
 
 }

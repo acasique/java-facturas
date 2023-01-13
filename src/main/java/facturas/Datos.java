@@ -38,7 +38,7 @@ public class Datos {
 		
 		Contribuyente alumno = new Contribuyente();
 		alumno.setNombre("Juanito");
-		alumno.setApellido("Sánchez");
+		alumno.setApellido("Sanchez");
 		alumno.setCp(43213);
 		alumno.setRfc("JUANITO45678");
 		alumno.setRegimen(RegimenFiscalEnum.FISICA);
@@ -47,8 +47,8 @@ public class Datos {
 		
 		
 		Contribuyente profesor = new Contribuyente();
-		profesor.setNombre("Alhelí");
-		profesor.setApellido("López");
+		profesor.setNombre("Alheli�");
+		profesor.setApellido("Lopez");
 		profesor.setCp(54343);
 		profesor.setRfc("ALHELI875455");
 		profesor.setRegimen(RegimenFiscalEnum.FISICA);
@@ -74,8 +74,7 @@ public class Datos {
 		pago2.setEmisor(escuela);
 		pago2.setReceptor(profesor);
 		
-		pagos = Arrays.asList(pago,pago2);
-		
+		pagos = Arrays.asList(pago,pago2);	
 
 		
 		
@@ -90,7 +89,7 @@ public class Datos {
 	
 		
 		Factura factura2 = new Factura();
-		factura2.setCantidad(1000d);
+		factura2.setCantidad(1800d);
 		factura2.setFecha(new Date());
 		factura2.setFolio(java.util.UUID.randomUUID().toString());
 		factura2.setMoneda("MXN");
@@ -99,7 +98,7 @@ public class Datos {
 		
 		this.facturas.add(factura2);
 		
-		System.out.println("Impresión de transacciones");
+		System.out.println("Impresion de transacciones");
 		
 		System.out.println("----Pagos realizados----");
 		
@@ -110,7 +109,9 @@ public class Datos {
 			.append(" Receptor:").append(p.getReceptor().getNombre())
 			.append(" Cantidad:").append(p.getCantidad())
 			.append(" Fecha:").append(p.getFecha())
-			.append(" Folio:").append(p.getFolio());
+			.append(" Folio:").append(p.getFolio())
+                        .append(" IVA:").append(p.getCantidad() * 0.16)
+                        .append(" Total:").append(p.getCantidad() * 1.16);
 			
 			System.out.println(sb);
 			
@@ -123,7 +124,9 @@ public class Datos {
 			.append(" Receptor:").append(p.getReceptor().getNombre())
 			.append(" Cantidad:").append(p.getCantidad())
 			.append(" Fecha:").append(p.getFecha())
-			.append(" Folio:").append(p.getFolio());
+			.append(" Folio:").append(p.getFolio())
+                        .append(" IVA:").append(p.getCantidad() * 0.16)
+                        .append(" Total:").append(p.getCantidad() * 1.16);
 			
 			System.out.println(sb);
 			

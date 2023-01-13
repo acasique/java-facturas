@@ -10,7 +10,7 @@ package facturas.clases;
  */
 public enum RegimenFiscalEnum {
     
-	MORAL,
+    MORAL,
     FISICA;
     
 }

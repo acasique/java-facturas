@@ -10,8 +10,7 @@ package facturas.clases;
  */
 public enum TipoPago {
     
-	
-	PUE, //Pago en una sola exhibición
+    PUE, //Pago en una sola exhibición
     PPD; //Pagos diferidos
     
     
