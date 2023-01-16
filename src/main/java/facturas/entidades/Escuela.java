@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package facturas.clases;
+package facturas.entidades;
 
 import java.util.List;
+
+import facturas.constantes.RegimenFiscalEnum;
+import facturas.constantes.TipoPago;
 
 /**
  *
@@ -19,8 +22,8 @@ public class Escuela {
 	private TipoPago tipo = TipoPago.PUE;
     private int cp;
     
-	private List<Pago> pagos;
-	private List<Factura> facturas;
+	private List<PagoEntity> pagos;
+	private List<FacturaEntity> facturas;
 	public String getRfc() {
 		return rfc;
 	}
@@ -57,20 +60,20 @@ public class Escuela {
 	public void setCp(int cp) {
 		this.cp = cp;
 	}
-	public List<Pago> getPagos() {
+	public List<PagoEntity> getPagos() {
 		return pagos;
 	}
-	public void setPagos(List<Pago> pagos) {
+	public void setPagos(List<PagoEntity> pagos) {
 		this.pagos = pagos;
 	}
-	public List<Factura> getFacturas() {
+	public List<FacturaEntity> getFacturas() {
 		return facturas;
 	}
-	public void setFacturas(List<Factura> facturas) {
+	public void setFacturas(List<FacturaEntity> facturas) {
 		this.facturas = facturas;
 	}
 	public Escuela(String rfc, String nombre, String domicilio, RegimenFiscalEnum regimen, TipoPago tipo, int cp,
-			List<Pago> pagos, List<Factura> facturas) {
+			List<PagoEntity> pagos, List<FacturaEntity> facturas) {
 		super();
 		this.rfc = rfc;
 		this.nombre = nombre;

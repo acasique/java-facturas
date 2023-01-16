@@ -1,0 +1,72 @@
+<ul>
+	<li><a href="/">Inicio</a></li>
+	<li><a href="/contribuyentes">Contribuyentes</a></li>
+	<li><a href="/pagos">Pagos</a></li>
+</ul>
+
+
+<h2 th:text="${mensaje} ?: ''"></h2>
+
+
+
+<div>
+	<div th:switch="${factura.id}">
+		<h2 th:case="null">Crear factura</h2>
+		<h2 th:case="*">Editar factura</h2>
+	</div>
+
+	<form action="#" th:action="@{/facturas}" th:object="${factura}"
+		method="post">
+
+		<input type="text" th:field="*{id}" id="id" placeholder="id"
+			hidden="hidden"> <label for="folio">Folio</label> <input
+			type="text" th:field="*{folio}" id="folio" placeholder="Folio">
+
+		<label for="cantidad">Cantidad</label> <input type="text"
+			th:field="*{cantidad}" id="cantidad" placeholder="Cantidad">
+
+		<label for="moneda">Moneda</label> <input type="text"
+			th:field="*{moneda}" id="moneda" placeholder="Moneda"> <label
+			for="emisor">Emisor</label> <select th:field="*{emisor}">
+			<option th:each="contribuyente : ${contribuyentes}"
+				th:value="${contribuyente.id}" th:text="${contribuyente.nombre}">Emisor</option>
+		</select> <label for="receptor">Receptor</label> <select th:field="*{receptor}">
+			<option th:each="contribuyente : ${contribuyentes}"
+				th:value="${contribuyente.id}" th:text="${contribuyente.nombre}">Receptor</option>
+		</select> <input type="submit" value="Guardar factura">
+	</form>
+
+</div>
+
+<div th:switch="${facturas}">
+	<h2 th:case="null">Sin facturas disponibles</h2>
+	<div th:case="*">
+		<h2>Productos</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Folio</th>
+					<th>Cantidad</th>
+					<th>Moneda</th>
+					<th>Emisor</th>
+					<th>Receptor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="factura : ${facturas}">
+					<td th:text="${factura.id}"></td>
+					<td th:text="${factura.folio}"></td>
+					<td th:text="${factura.cantidad}"></td>
+					<td th:text="${factura.moneda}"></td>
+					<td th:text="${factura.emisor.nombre}"></td>
+					<td th:text="${factura.receptor.nombre}"></td>
+					<td><a th:href="@{/facturas/{id}(id=${factura.id})}">Editar</a></td>
+					<td><a th:href="@{/facturas/eliminar/{id}(id=${factura.id})}">Eliminar</a></td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>

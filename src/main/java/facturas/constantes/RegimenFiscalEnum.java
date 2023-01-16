@@ -2,16 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package facturas.clases;
+package facturas.constantes;
 
 /**
  *
  * @author Dell
  */
-public enum TipoPago {
+public enum RegimenFiscalEnum {
     
-    PUE, //Pago en una sola exhibición
-    PPD; //Pagos diferidos
-    
+    MORAL,
+    FISICA;
     
 }

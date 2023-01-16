@@ -1,4 +1,4 @@
-package facturas.clases;
+package facturas.constantes;
 
 public enum TipoContribuyente {
 	

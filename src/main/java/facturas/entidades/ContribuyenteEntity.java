@@ -1,23 +1,62 @@
-package facturas.clases;
+package facturas.entidades;
 
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-public class Contribuyente {
+import facturas.constantes.RegimenFiscalEnum;
+import facturas.constantes.TipoContribuyente;
+import facturas.constantes.TipoPago;
+
+@Entity
+@Table(name = "contribuyentes")
+public class ContribuyenteEntity {
 	
+	/** The id. */
+	@Id
+	@Column(name = "id", unique = true, nullable = false)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name = "rfc")
 	private String rfc;
+	
+	@Column(name = "nombre")
 	private String nombre;
+	
+	@Column(name = "apellido")
 	private String apellido;
+	
+	@Column(name = "domicilio")
 	private String domicilio;
+	
+	@Enumerated(EnumType.STRING)
 	private TipoContribuyente tipoContribuyente;
+	
+	@Column(name = "cp")
 	private int cp;
+	
+	@Column(name = "regimen")
+	@Enumerated(EnumType.STRING)
 	private RegimenFiscalEnum regimen = RegimenFiscalEnum.FISICA;
+	
+	@Column(name = "tipo_pago")
+	@Enumerated(EnumType.STRING)
 	private TipoPago tipoPago = TipoPago.PUE;
-
-
-	private List<Pago> pagos;
-	private List<Factura> facturas;
 	
-	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public TipoContribuyente getTipoContribuyente() {
 		return tipoContribuyente;
 	}
@@ -81,22 +120,7 @@ public class Contribuyente {
 	public void setRegimen(RegimenFiscalEnum regimen) {
 		this.regimen = regimen;
 	}
-
-	public List<Pago> getPagos() {
-		return pagos;
-	}
-
-	public void setPagos(List<Pago> pagos) {
-		this.pagos = pagos;
-	}
-
-	public List<Factura> getFacturas() {
-		return facturas;
-	}
-
-	public void setFacturas(List<Factura> facturas) {
-		this.facturas = facturas;
-	}
+	
 	
 	public String toString() {
 		

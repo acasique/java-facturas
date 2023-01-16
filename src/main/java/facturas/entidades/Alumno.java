@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package facturas.clases;
+package facturas.entidades;
 
 import java.util.List;
+
+import facturas.constantes.RegimenFiscalEnum;
+import facturas.constantes.TipoPago;
 
 /**
  *
@@ -23,8 +26,8 @@ public class Alumno {
 	private RegimenFiscalEnum regimen = RegimenFiscalEnum.FISICA;
 	private TipoPago tipo = TipoPago.PUE;
 
-	private List<Pago> pagos;
-	private List<Factura> facturas;
+	private List<PagoEntity> pagos;
+	private List<FacturaEntity> facturas;
 	
 	
 	
@@ -84,19 +87,19 @@ public class Alumno {
 		this.tipo = tipo;
 	}
 
-	public List<Pago> getPagos() {
+	public List<PagoEntity> getPagos() {
 		return pagos;
 	}
 
-	public void setPagos(List<Pago> pagos) {
+	public void setPagos(List<PagoEntity> pagos) {
 		this.pagos = pagos;
 	}
 
-	public List<Factura> getFacturas() {
+	public List<FacturaEntity> getFacturas() {
 		return facturas;
 	}
 
-	public void setFacturas(List<Factura> facturas) {
+	public void setFacturas(List<FacturaEntity> facturas) {
 		this.facturas = facturas;
 	}
 	

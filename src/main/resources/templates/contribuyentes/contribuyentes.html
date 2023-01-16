@@ -1,0 +1,64 @@
+<ul>
+	<li><a href="/">Inicio</a></li>
+	<li><a href="/pagos">Pagos</a></li>
+	<li><a href="/facturas">Facturas</a></li>
+</ul>
+
+
+
+<h2 th:text="${mensaje} ?: ''"></h2>
+
+
+
+<div>
+	<div th:switch="${contribuyente.id}">
+		<h2 th:case="null">Crear contribuyente</h2>
+		<h2 th:case="*">Editar contribuyente</h2>
+	</div>
+	
+	<form action="#" th:action="@{/contribuyentes}" th:object="${contribuyente}" method="post">
+	    
+	    <input type="text" th:field="*{id}" id="id" placeholder="id" hidden="hidden">
+	    
+	    <label for="rfc">RFC</label>
+	    <input type="text" th:field="*{rfc}" id="rfc" placeholder="RFC">
+	 
+	    <label for="nombre">Nombre</label>
+	    <input type="text" th:field="*{nombre}" id="nombre" placeholder="Nombre">
+	    
+	    <label for="domicilio">Domicilio</label>
+	    <input type="text" th:field="*{domicilio}" id="domicilio" placeholder="Domicilio">
+	
+	    <input type="submit" value="Guardar contribuyente">   
+	</form>
+
+</div>
+
+<div th:switch="${contribuyentes}">
+    <h2 th:case="null">Sin contribuyentes disponibles</h2>
+    <div th:case="*">
+        <h2>Marcas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>RFC</th>
+                    <th>Nombre</th>
+                    <th>Domicilio</th>
+                </tr>
+            </thead>
+            <tbody>
+	            <tr th:each="contribuyente : ${contribuyentes}">
+	                <td th:text="${contribuyente.id}"></td>
+	                <td th:text="${contribuyente.rfc}"></td>
+	                <td th:text="${contribuyente.nombre}"></td>
+	                <td th:text="${contribuyente.domicilio}"></td>
+	                <td><a th:href="@{/contribuyentes/{id}(id=${contribuyente.id})}">Editar</a></td>
+					<td><a th:href="@{/contribuyentes/eliminar/{id}(id=${contribuyente.id})}">Eliminar</a></td>
+	                
+	            </tr>
+        	</tbody>
+    	</table>
+	</div>      
+    
+</div>
